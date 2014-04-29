@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <!-- Static files added for every html page -->
+    <link rel="stylesheet" type="text/css" href="{% static 'hrapp/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'hrapp/css/main.css' %}" />
+    <script src="{% static 'hrapp/js/jquery-2.1.0.min.js' %}"></script>
+    <script src="{% static 'hrapp/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'hrapp/js/main.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:100,200,300,400,600,700">
+
+    <title>Hashtag Recommender</title>
+</head>
+
+<body>
+    <div class="container-fluid" id="all">
+
+        <div class="col-md-3"></div>
+        <div class="col-md-6" id="mid-col">
+            <br>
+            <div id="main-heading">
+                <span id="title">Tweeter</span>
+                <br>
+                <span id="subtitle">A Twitter Hashtag Recommendation Engine</span>
+            </div>
+            <br>
+            <br>
+            <div id="tweet-box">
+                <textarea id="tweet-area" class="form-control" rows="2" placeholder="Enter a tweet"></textarea>
+                <br>
+                <div class="text-right">
+                    <button id="tweet-btn" class="btn btn-default">Recommend Me</button>
+                </div>        
+            </div>
+
+
+        </div>
+        <div class="col-md-3"></div>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+#all {
+	font-family: Lato;
+	font-weight:300;
+}
+
+#main-heading {
+	font-weight:300;
+}
+
+#main-heading #title {
+	font-size: 60px;
+}
+
+#main-heading #subtitle {
+	font-size: 15px;
+	color: grey;
+	padding-left: 5px;
+}
+
+#tweet-area {
+	resize: none;
+}
