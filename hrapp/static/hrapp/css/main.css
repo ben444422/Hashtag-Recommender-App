@@ -5,16 +5,30 @@
 
 #main-heading {
 	font-weight:300;
+	line-height: 20px;
 }
 
 #main-heading #title {
-	font-size: 60px;
+	font-size: 70px;
 }
-
 #main-heading #subtitle {
 	font-size: 15px;
 	color: grey;
-	padding-left: 5px;
+	padding-left: 15px;
+
+}
+
+#special {
+	color: orange;
+}
+#tweet-box {
+	padding-left: 60px;
+	line-height: 5px;
+}
+
+
+#tweet-btn {
+	font-weight:300;
 }
 
 #tweet-area {
