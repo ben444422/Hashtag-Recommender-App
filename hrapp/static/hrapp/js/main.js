@@ -40,8 +40,8 @@ View = {
                  		}
                  		cur_hashtag = cur_hashtag + 1;
                  		$('#hashtag').empty().append(" #" + data['hashtags'][cur_hashtag] + " #" + data['hashtags'][cur_hashtag+1] + " #" + data['hashtags'][cur_hashtag+2]);
-
-
+                 		
+                 		
                  	});
 
                  }
