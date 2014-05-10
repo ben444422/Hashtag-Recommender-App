@@ -29,17 +29,17 @@ View = {
                  success: function(data){
                     console.log(data)
                     $('#tweet-btn').removeClass('disabled').empty().append("Recommend Me");
-                    $('#recommendation').empty().append(tweet + "<span id='hashtag' class='orangey'> #" + data['hashtags'][0] + "</span>");
+                    $('#recommendation').empty().append(tweet + "<span id='hashtag' class='orangey'> #" + data['hashtags'][0] + " #" + data['hashtags'][1] + " #" + data['hashtags'][2] + "</span>");
                  	$('#tweet-box').slideUp();
                  	$('#recommendation-box').slideDown();
 
                  	var cur_hashtag = 0
                  	$('#new-hashtag-btn').click(function() {
-                 		if (cur_hashtag == data['hashtags'].length- 1) {
+                 		if (cur_hashtag+2 == data['hashtags'].length- 1) {
                  			return;
                  		}
                  		cur_hashtag = cur_hashtag + 1;
-                 		$('#hashtag').empty().append(" #" + data['hashtags'][cur_hashtag]);
+                 		$('#hashtag').empty().append(" #" + data['hashtags'][cur_hashtag] + " #" + data['hashtags'][cur_hashtag+1] + " #" + data['hashtags'][cur_hashtag+2]);
 
 
                  	});
