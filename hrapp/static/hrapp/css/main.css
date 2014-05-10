@@ -22,7 +22,6 @@
 	color: orange;
 }
 #tweet-box {
-	padding-left: 60px;
 	line-height: 5px;
 }
 
@@ -33,4 +32,14 @@
 
 #tweet-area {
 	resize: none;
+}
+
+.orangey {
+	color: orange;
+}
+.indent {
+	padding-left: 60px;
+}
+#recommendation {
+	font-size: 30px;
 }

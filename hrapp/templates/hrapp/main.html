@@ -13,6 +13,16 @@
     <title>Hashtag Recommender</title>
 </head>
 
+
+<script>
+    var info = {
+        csrf_token: "{{csrf_token}}"
+    };
+    View.init(info);
+</script>
+
+
+
 <body>
     <div class="container-fluid" id="all">
 
@@ -28,14 +38,23 @@
             </div>
             <br>
             <br>
-            <div id="tweet-box">
+            <div class="indent" id="tweet-box">
                 <textarea id="tweet-area" class="form-control" rows="2" placeholder="Enter a tweet"></textarea>
                 <br>
                 <div class="text-right">
                     <button id="tweet-btn" class="btn btn-warning">Recommend Me</button>
                 </div>        
             </div>
+            <div class="indent" id="recommendation-box">
+                <div id="recommendation">
+                </div>
+                <br>
+                <div class="text-right">
 
+                    <button id="back-btn" class="btn btn-danger">Back</button>
+                    <button id="new-hashtag-btn" class="btn btn-warning">Another Hashtag</button>
+                </div>  
+            </div>
 
         </div>
         <div class="col-md-3"></div>
