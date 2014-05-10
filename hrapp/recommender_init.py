@@ -6,5 +6,5 @@ class RecommendationEngine:
 
 	def __init__(self):
 		start_time = time.time()
-		RecommendationEngine.rqs = RecommenderQS(num_hashtags=1000)
+		RecommendationEngine.rqs = RecommenderQS(num_hashtags=5000)
 		print "Recommendation took: " + str((time.time() - start_time)/60) + " minutes"
