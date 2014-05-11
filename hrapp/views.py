@@ -10,6 +10,7 @@ def main(request):
 	context = {}
 	return render(request,'hrapp/main.html')
 
+
 def recommend(request):
 	if request.method == "GET":
 		tweet = request.GET.get('tweet', None)
