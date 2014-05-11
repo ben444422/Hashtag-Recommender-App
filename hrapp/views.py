@@ -3,7 +3,8 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 import json
 from hrapp.recommender.QuerySearch.QuerySearch_production import RecommenderQS
 
-
+ 
+ 
 
 # Create your views here.
 def main(request):
