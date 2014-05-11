@@ -43,3 +43,26 @@
 #recommendation {
 	font-size: 30px;
 }
+
+
+
+a.null-link:link
+{
+   color: orange;
+   text-decoration: none;
+}
+a.null-link:visited
+{
+   color: orange;
+   text-decoration: none;
+}
+a.null-link:hover
+{
+   color: orange;
+   text-decoration: underline;
+}
+a.null-link:active
+{
+   color: orange;
+   text-decoration: none;
+}

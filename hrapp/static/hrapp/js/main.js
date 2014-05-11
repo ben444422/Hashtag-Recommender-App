@@ -29,7 +29,11 @@ View = {
                  success: function(data){
                     console.log(data)
                     $('#tweet-btn').removeClass('disabled').empty().append("Recommend Me");
-                    $('#recommendation').empty().append(tweet + "<span id='hashtag' class='orangey'> #" + data['hashtags'][0] + " #" + data['hashtags'][1] + " #" + data['hashtags'][2] + "</span>");
+                    $('#recommendation').empty().append(tweet + "<span id='hashtag' class='orangey'>" 
+                        + "<a target='_blank' class='null-link' href='https://twitter.com/search?q=" + data['hashtags'][0] + "'> #" + data['hashtags'][0] + "</a>"
+                        + "<a target='_blank' class='null-link' href='https://twitter.com/search?q=" + data['hashtags'][1] + "'> #" + data['hashtags'][1] + "</a>"
+                        + "<a target='_blank' class='null-link' href='https://twitter.com/search?q=" + data['hashtags'][2] + "'> #" + data['hashtags'][2] + "</a>"
+                        + "</span>");
                  	$('#tweet-box').slideUp();
                  	$('#recommendation-box').slideDown();
 
@@ -39,7 +43,11 @@ View = {
                  			return;
                  		}
                  		cur_hashtag = cur_hashtag + 1;
-                 		$('#hashtag').empty().append(" #" + data['hashtags'][cur_hashtag] + " #" + data['hashtags'][cur_hashtag+1] + " #" + data['hashtags'][cur_hashtag+2]);
+                 		 $('#recommendation').empty().append(tweet + "<span id='hashtag' class='orangey'>" 
+                        + "<a target='_blank' class='null-link' href='https://twitter.com/search?q=" + data['hashtags'][cur_hashtag] + "'> #" + data['hashtags'][cur_hashtag] + "</a>"
+                        + "<a target='_blank' class='null-link' href='https://twitter.com/search?q=" + data['hashtags'][cur_hashtag+1] + "'> #" + data['hashtags'][cur_hashtag+1] + "</a>"
+                        + "<a target='_blank' class='null-link' href='https://twitter.com/search?q=" + data['hashtags'][cur_hashtag+2] + "'> #" + data['hashtags'][cur_hashtag+2] + "</a>"
+                        + "</span>");
                  		
                  		
                  	});
