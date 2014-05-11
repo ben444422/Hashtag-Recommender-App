@@ -37,7 +37,6 @@ class TweetLib:
 		self.cursor = self.conn.cursor()
 
 	# get the [count] hashtags with the most tweets in the database
-	# This function may be particularly expensive so don't call it too much
 	def get_top_hashtags(self, num_hashtags):
 		self.open_db()
 		self.cursor.execute("""SELECT hashtag FROM top_hashtags ORDER BY ranking """)
@@ -45,6 +44,25 @@ class TweetLib:
 		self.close_db()
 		return hashtags
 
+	# return a single string (i.e. the document) for a hashtag
+	# this document is essentially the concatenation of thousands of tweets for that hashtag
+	def get_hashtag_document(self, hashtag):
+		self.open_db()
+		self.cursor.execute("SELECT tweet_document FROM tweetdocument WHERE hashtag_id=%s", (hashtag,))
+		document = str(self.cursor.fetchone()[0])
+		self.close_db()	
+		return document
+
+	# returns a list of random documents along with their hashtags
+	def get_hastag_documents(self, num_hashtags):
+		self.open_db()
+		self.cursor.execute("SELECT hashtag_id, tweet_document FROM tweetdocument LIMIT %s", (num_hashtags,))
+		documents = list(self.cursor.fetchall())
+		self.close_db()
+		return documents	
+
+
+	# fills the table with hashtags as well as the rank of how common they are
 	def update_top_hashtags(self):
 		self.open_db()
 
@@ -80,13 +98,10 @@ class TweetLib:
 		return [tweet[0] for tweet in tweets]
 
 
-
-
-
 		self.close_db
 if __name__ == "__main__":
 	tl= TweetLib()
-	tl.update_top_hashtags()
+	#tl.update_top_hashtags()
 	pprint(tl.get_top_hashtags(10))
 #	pprint(tl.get_top_hashtags(30))
 
