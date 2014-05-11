@@ -1,1 +1,1 @@
-web: gunicorn Hashtagger.wsgi --timeout 100000000000
+web: gunicorn Hashtagger.wsgi
