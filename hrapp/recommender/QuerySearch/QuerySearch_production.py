@@ -21,8 +21,11 @@ class RecommenderQS:
 		tweet = " ".join([w.lower() for w in tweet.split() if not w.lower() in RecommenderQS.stop_words])
 		tweet_vec = self.vectorizer.transform([tweet])
 		scores = cosine_similarity(tweet_vec[0:1], self.hashtag_vectors)[0]
-		return list(reversed([self.hashtags[i[0]] for i in sorted(enumerate(scores), key=lambda x:x[1])]))
-
+		hashtags = list(reversed([(self.hashtags[i[0]],i[1]) for i in sorted(enumerate(scores), key=lambda x:x[1])]))
+		if hashtags[0][1] < 0.000001:
+			return None
+		else:
+			return [a for a,b in hashtags]
 if __name__ == "__main__":
 	rqs = RecommenderQS(num_hashtags=1000)
 	print rqs.recommend("nfl")

@@ -8,7 +8,6 @@ View = {
         });
     },
     init_view: function() {
-
     	$('#recommendation-box').hide();
 		$('#tweet-btn').click(function() {
 			var tweet = $("#tweet-area").val().trim()
@@ -29,6 +28,15 @@ View = {
                  success: function(data){
                     console.log(data)
                     $('#tweet-btn').removeClass('disabled').empty().append("Recommend Me");
+                    if (data['hashtags'].length == 0) {
+                        $('#recommendation').empty().append("No recommendations found <span id='hashtag' class='orangey'>#sorry</span>");
+                        $('#tweet-box').slideUp();
+                        $('#recommendation-box').slideDown();
+                        $('#new-hashtag-btn').hide();
+                        return;
+                    }
+
+                    
                     $('#recommendation').empty().append(tweet + "<span id='hashtag' class='orangey'>" 
                         + "<a target='_blank' class='null-link' href='https://twitter.com/search?q=" + data['hashtags'][0] + "'> #" + data['hashtags'][0] + "</a>"
                         + "<a target='_blank' class='null-link' href='https://twitter.com/search?q=" + data['hashtags'][1] + "'> #" + data['hashtags'][1] + "</a>"
@@ -59,6 +67,7 @@ View = {
 		$('#back-btn').click(function() {
 			$('#tweet-box').slideDown();
             $('#recommendation-box').slideUp();
+            $('#new-hashtag-btn').show();
 		});
 	}
 }
