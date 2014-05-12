@@ -20,7 +20,7 @@ def recommend(request):
 			return HttpResponse(status=400)
 		resp = {}
 		if RecommendationEngine.rqs is None:
-			RecommendationEngine.rqs = RecommenderQS(num_hashtags=7000)
+			RecommendationEngine.rqs = RecommenderQS(num_hashtags=RecommendationEngine.num_hashtags)
 		resp['hashtags'] = RecommendationEngine.rqs.recommend(tweet)
 		return HttpResponse(json.dumps(resp), content_type="application/json")
 	return HttpResponse(status=501)
