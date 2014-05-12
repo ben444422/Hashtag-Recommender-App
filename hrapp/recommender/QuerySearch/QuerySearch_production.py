@@ -1,6 +1,7 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from hrapp.recommender.TweetLib import TweetLib
+from nltk.corpus import stopwords
 
 
 class RecommenderQS:
@@ -17,6 +18,7 @@ class RecommenderQS:
 		self.hashtag_vectors = self.vectorizer.transform(corpus)
 
 	def recommend(self, tweet):
+		tweet = " ".join([w.lower() for w in tweet.split() if not w.lower() in stopwords.words('english')])
 		tweet_vec = self.vectorizer.transform([tweet])
 		scores = cosine_similarity(tweet_vec[0:1], self.hashtag_vectors)[0]
 		return list(reversed([self.hashtags[i[0]] for i in sorted(enumerate(scores), key=lambda x:x[1])]))

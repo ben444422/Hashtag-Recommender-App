@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 import json
+import urllib 
 from hrapp.recommender.QuerySearch.QuerySearch_production import RecommenderQS
 from hrapp.RecommendationEngine import RecommendationEngine
   
@@ -15,7 +16,7 @@ def main(request):
 
 def recommend(request):
 	if request.method == "GET":
-		tweet = request.GET.get('tweet', None)
+		tweet = urllib.unquote(request.GET.get('tweet', None)).decode('utf8')
 		if tweet == None:
 			return HttpResponse(status=400)
 		resp = {}
