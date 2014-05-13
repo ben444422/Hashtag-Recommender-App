@@ -9,7 +9,7 @@ class RecommenderQS:
 		self.tl = TweetLib()
 
 		print "Creating the corpus..."
-		documents = self.tl.get_hastag_documents(num_hashtags)
+		documents = self.tl.get_hashtag_documents(num_hashtags)
 		corpus = [b for a,b in documents]
 		self.hashtags = [a for a,b in documents]
 
