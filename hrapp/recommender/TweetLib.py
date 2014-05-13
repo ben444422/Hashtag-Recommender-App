@@ -54,7 +54,7 @@ class TweetLib:
 		return document
 
 	# returns a list of random documents along with their hashtags
-	def get_hastag_documents(self, num_hashtags):
+	def get_hashtag_documents(self, num_hashtags):
 		self.open_db()
 		self.cursor.execute("SELECT hashtag_id, tweet_document FROM tweetdocument LIMIT %s", (num_hashtags,))
 		documents = list(self.cursor.fetchall())

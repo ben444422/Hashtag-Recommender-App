@@ -2,9 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 import json
 import urllib 
-from hrapp.recommender.QuerySearch.QuerySearch_production import RecommenderQS
 from hrapp.RecommendationEngine import RecommendationEngine
-  
+
 
 
 
@@ -20,9 +19,9 @@ def recommend(request):
 		if tweet == None:
 			return HttpResponse(status=400)
 		resp = {}
-		if RecommendationEngine.rqs is None:
-			RecommendationEngine.rqs = RecommenderQS(num_hashtags=RecommendationEngine.num_hashtags)
-		hashtags = RecommendationEngine.rqs.recommend(tweet)
+		if RecommendationEngine.rnb is None:
+			RecommendationEngine.rnb = RecommenderNB(num_hashtags=RecommendationEngine.num_hashtags)
+		hashtags = RecommendationEngine.rnb.recommend(tweet)
 		if hashtags == None:
 			resp['hashtags'] = []
 		else:
