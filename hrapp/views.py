@@ -19,9 +19,7 @@ def recommend(request):
 		if tweet == None:
 			return HttpResponse(status=400)
 		resp = {}
-		if RecommendationEngine.rnb is None:
-			RecommendationEngine.rnb = RecommenderNB(num_hashtags=RecommendationEngine.num_hashtags)
-		hashtags = RecommendationEngine.rnb.recommend(tweet)
+		hashtags = RecommendationEngine.rqs.recommend(tweet)
 		if hashtags == None:
 			resp['hashtags'] = []
 		else:
