@@ -19,7 +19,7 @@ class RecommenderNB:
 		self.xtrain = self.vectorizer.fit_transform(corpus)
 		self.ytrain = all_classes
 		self.parameters = {'alpha': 0.01}
-		self.clf = MultinomialNB(**self.parameters).partial_fit(self.xtrain, self.ytrain)
+		self.clf = MultinomialNB(**self.parameters).partial_fit(self.xtrain, self.ytrain, self.ytrain)
 		print "Classifier has been generated..."
 
 	def recommend(self, tweet):
@@ -34,9 +34,10 @@ class RecommenderNB:
 			return list(reversed([self.hashtags[i[0]] for i in sorted_pred]))
 
 if __name__ == "__main__":
-	rqs = RecommenderNB(num_hashtags=1000)
-	print rqs.recommend("nf32131231l")
+	rqs = RecommenderNB(num_hashtags=200)
+	print rqs.recommend("nfl")
 
+		
 		
 
 
