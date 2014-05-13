@@ -5,7 +5,7 @@ import time
 class RecommendationEngine:
 	rqs = None
 	rnb = None
-	num_hashtags = 200
+	num_hashtags = 1000
 	def __init__(self):
 		start_time = time.time()
 		RecommendationEngine.rnb = RecommenderNB(num_hashtags=RecommendationEngine.num_hashtags)
