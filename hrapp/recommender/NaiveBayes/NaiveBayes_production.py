@@ -19,7 +19,7 @@ class RecommenderNB:
 		self.xtrain = self.vectorizer.fit_transform(corpus)
 		self.ytrain = all_classes
 		self.parameters = {'alpha': 0.01}
-		self.clf = MultinomialNB(**self.parameters).fit(self.xtrain, self.ytrain)
+		self.clf = MultinomialNB(**self.parameters).partial_fit(self.xtrain, self.ytrain)
 		print "Classifier has been generated..."
 
 	def recommend(self, tweet):
